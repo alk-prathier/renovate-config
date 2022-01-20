@@ -1,0 +1,39 @@
+{
+  "enabled": true, // enable Renovate
+  "automergeType": "pr", // Raise a PR first before any automerging
+  "separateMinorPatch": true,
+  "patch": {
+    "automerge": true
+  },
+  "minor": {
+    "automerge": false
+  },
+  "pin": {
+    "automerge": true
+  },
+  "lockFileMaintenance": {
+    //Run lock file maintenance (updates) early Monday mornings
+    "enabled": true,
+    "extends": [
+      "schedule:weekly"
+    ],
+    "automerge": true
+  },
+  "packageRules": [
+    //python rules
+    {
+      "depTypeList": ["devDependencies"],
+      "automerge": true
+    },
+    //js rules
+    {
+      "depTypeList": ["devDependencies"],
+      "automerge": true
+    }
+  ],
+  
+  //enable Go modules support
+  "gomod": {
+    "enabled": true
+  }
+}
